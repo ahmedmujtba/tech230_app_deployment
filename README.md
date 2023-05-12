@@ -35,11 +35,24 @@ NOTE: working directory in bash terminal will change to `vagrant@ubuntu/xenial64
 
 Follow the steps below to ensure all the tests work ok before deploying the app
 
+## Deploying the App (Auotmated Process)
+
+To Automate the deployment, we will need to add additional scripting to our provision file to install node and other relevant packages:
+
+* `sudo apt-get install python-software-properties -y` - Install python properties
+* `curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -`
+* `sudo apt-get install nodejs -y` - Install nodejs
+* `npm install pm2 -g` - Install pm2 process manager
+* `cd /home/vagrant/app/app/app` - Enter's relevant directory
+* `npm install` - Installs npm
+* `npm start` - Runs the App
+
+The new provision file should look like this:
+
+![Alt text](assets/nginx-provision.png)
 
 
-
-
-## Deploying the App
+## Deploying the App (Manual Process)
 
 1. `sudo apt-get install python-software-properties`
 2. `curl -sL https://deb.nodesource.com/setup_6.x | sudo -E bash -`. It should look like this and it will prompt you to run command in step 3 after execution.
